@@ -21,7 +21,7 @@
               "apps/register-users/src/favicon.ico",
               "apps/register-users/src/assets"
             ],
-            "styles": ["apps/register-users/src/styles.scss"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/register-users/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -122,6 +122,7 @@
     }
   },
   "cli": {
+    "analytics": false,
     "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
