@@ -1,68 +1,73 @@
 <mat-card *ngIf="login">
-    <mat-card-title>Login</mat-card-title>
-<mat-card-content>
-<form  >
-  <p>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Username" >
-    </mat-form-field>
-  </p>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Username">
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Password" >
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password">
+        </mat-form-field>
+      </p>
 
-  <p  class="error">
-    
-  </p>
+      <p class="error">
 
-  <div class="button">
-    <button type="submit" mat-button>Login</button>
-  </div>
+      </p>
 
-</form>
-</mat-card-content>
+      <div class="button">
+        <button type="submit" mat-button>Login</button>
+      </div>
+     
+      <p>
+        <span (click)="flicker()">Already a registered user?</span>
+      </p>
+    </form>
+  </mat-card-content>
 </mat-card>
 
 <!-- Registration card -->
 <mat-card *ngIf="!login">
   <mat-card-title>Create an account</mat-card-title>
-<mat-card-content>
-<form  >
-<p>
-  <mat-form-field>
-    <input type="text" matInput placeholder="First name" >
-  </mat-form-field>
-</p>
+  <mat-card-content>
+    <form>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="First name">
+        </mat-form-field>
+      </p>
 
-<p>
-  <mat-form-field>
-    <input type="password" matInput placeholder="Last Name" >
-  </mat-form-field>
-</p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Last Name">
+        </mat-form-field>
+      </p>
 
-<p>
-  <mat-form-field>
-    <input type="password" matInput placeholder="Create Username" >
-  </mat-form-field>
-</p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Create Username">
+        </mat-form-field>
+      </p>
 
-<p>
-  <mat-form-field>
-    <input type="password" matInput placeholder="Create password" >
-  </mat-form-field>
-</p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Create password">
+        </mat-form-field>
+      </p>
 
-<p  class="error">
-  
-</p>
+      <p class="error">
 
-<div class="button">
-  <button type="submit" mat-button>Create</button>
-</div>
+      </p>
+      <div class="button">
+        <button type="submit" mat-button>Create</button>
+      </div>
+      <p>
+        <span (click)="flicker()">return to login?</span>
+      </p>
 
-</form>
-</mat-card-content>
+    </form>
+  </mat-card-content>
 </mat-card>

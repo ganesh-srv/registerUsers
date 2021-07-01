@@ -1,5 +1,5 @@
 
-import { Input, Component,OnInit, Output, EventEmitter } from '@angular/core';
+import { Input, Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -11,10 +11,13 @@ export class LoginComponent implements OnInit {
   public login: boolean | undefined;
   constructor() {
     this.login = true;
-   }
-
-  ngOnInit(): void {
-    
   }
 
+  ngOnInit(): void {
+
+  }
+
+  flicker() {
+    this.login = !this.login;
+  }
 }
