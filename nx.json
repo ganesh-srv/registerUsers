@@ -27,12 +27,21 @@
     ]
   },
   "projects": {
+    "common": {
+      "tags": []
+    },
+    "generic": {
+      "tags": []
+    },
     "register-users": {
       "tags": []
     },
     "register-users-e2e": {
       "tags": [],
       "implicitDependencies": ["register-users"]
+    },
+    "shared": {
+      "tags": []
     }
   }
 }

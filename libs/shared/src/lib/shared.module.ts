@@ -4,16 +4,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
-
 @NgModule({
+  imports: [CommonModule, MatToolbarModule],
   declarations: [
     HeaderComponent,
     FooterComponent
   ],
-  imports: [
-    CommonModule,
-    MatToolbarModule
-  ],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent]
 })
 export class SharedModule { }
