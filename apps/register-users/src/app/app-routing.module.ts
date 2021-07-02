@@ -23,6 +23,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   exports: [RouterModule],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
 })
 export class AppRoutingModule { }

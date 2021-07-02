@@ -1,6 +1,64 @@
 {
   "version": 1,
   "projects": {
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": [
+              "apps/api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/api"
+          ],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "common": {
       "projectType": "library",
       "root": "libs/common",
@@ -9,7 +67,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/common"],
+          "outputs": [
+            "coverage/libs/common"
+          ],
           "options": {
             "jestConfig": "libs/common/jest.config.js",
             "passWithNoTests": true
@@ -34,7 +94,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/generic"],
+          "outputs": [
+            "coverage/libs/generic"
+          ],
           "options": {
             "jestConfig": "libs/generic/jest.config.js",
             "passWithNoTests": true
@@ -59,9 +121,11 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
-            "outputPath": "dist/apps/register-users",
+            "outputPath": "dist/register-users/browser",
             "index": "apps/register-users/src/index.html",
             "main": "apps/register-users/src/main.ts",
             "polyfills": "apps/register-users/src/polyfills.ts",
@@ -139,11 +203,72 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/register-users"],
+          "outputs": [
+            "coverage/apps/register-users"
+          ],
           "options": {
             "jestConfig": "apps/register-users/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/register-users/server",
+            "main": "apps/register-users/server.ts",
+            "tsConfig": "apps/register-users/tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/register-users/src/environments/environment.ts",
+                  "with": "apps/register-users/src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "register-users:build:development",
+              "serverTarget": "register-users:server:development"
+            },
+            "production": {
+              "browserTarget": "register-users:build:production",
+              "serverTarget": "register-users:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "register-users:build:production",
+              "serverTarget": "register-users:server:production"
+            },
+            "development": {
+              "browserTarget": "register-users:build:development",
+              "serverTarget": "register-users:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     },
@@ -168,7 +293,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/register-users-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/register-users-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -181,7 +308,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared"],
+          "outputs": [
+            "coverage/libs/shared"
+          ],
           "options": {
             "jestConfig": "libs/shared/jest.config.js",
             "passWithNoTests": true

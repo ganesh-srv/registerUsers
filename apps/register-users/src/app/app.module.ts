@@ -9,7 +9,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, DashboardModule, LoginModule, BrowserAnimationsModule, AppRoutingModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), DashboardModule, LoginModule, BrowserAnimationsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
