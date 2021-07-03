@@ -22,7 +22,6 @@ export class UsersController {
     @Body('password') password: string,
 
   ) {
-    console.log("got u");
     try {
 
       const generatedId = await this.userService.createUser(firstName, lastName, username, password, SecurityQuestion);
@@ -55,7 +54,7 @@ export class UsersController {
 
 
   @Get('/getAll')
-  getmine() {
+  getAll() {
     return this.userService.getAllUsers();
   }
 }
