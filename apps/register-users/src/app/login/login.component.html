@@ -1,27 +1,27 @@
 <mat-card *ngIf="login">
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Username">
+          <input type="text" matInput placeholder="Username" formControlName="username">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="Password">
+          <input type="password" matInput placeholder="Password" formControlName="password">
         </mat-form-field>
       </p>
 
       <p class="error">
-
+        {{errorMessage}}
       </p>
 
       <div class="button">
         <button type="submit" mat-button>Login</button>
       </div>
-     
+
       <p>
         <span (click)="flicker()">Already a registered user?</span>
       </p>
@@ -33,28 +33,28 @@
 <mat-card *ngIf="!login">
   <mat-card-title>Create an account</mat-card-title>
   <mat-card-content>
-    <form>
+    <form [formGroup]="createUserForm" (ngSubmit)="onCreateUser()">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="First name">
+          <input type="text" matInput placeholder="First name" formControlName="firstName">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="Last Name">
+          <input type="text" matInput placeholder="Last Name" formControlName="lastName">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="Create Username">
+          <input type="text" matInput placeholder="Create Username" formControlName="userName">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="Create password">
+          <input type="password" matInput placeholder="Create password" formControlName="password">
         </mat-form-field>
       </p>
 

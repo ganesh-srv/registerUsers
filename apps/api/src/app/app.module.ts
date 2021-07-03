@@ -6,6 +6,7 @@ import { UsersService } from './users/users.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 
+
 @Module({
   imports: [UsersModule,MongooseModule.forRoot('mongodb+srv://pennyuser:ilikepancakes@clusterexodus.ntnmz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')],
   controllers: [AppController],

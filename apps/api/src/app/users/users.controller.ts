@@ -16,13 +16,43 @@ export class UsersController {
   async createUsers(
     @Body('firstName') firstName: string,
     @Body('lastName') lastName: string,
-    @Body('emailId') emailId: string,
+    @Body('securityQuestion') SecurityQuestion: Object,
+    @Body('userName') username: string,
+
+    @Body('password') password: string,
+
   ) {
     console.log("got u");
-    
-    const generatedId = await this.userService.createUser(firstName, lastName, emailId);
-    return { id: generatedId };
+    try {
+
+      const generatedId = await this.userService.createUser(firstName, lastName, username, password, SecurityQuestion);
+      if (generatedId) {
+        return { isSuccess: true };
+      }
+    } catch (error) {
+      return { isSuccess: false, error };
+    }
+
   }
+
+
+  @Post('/check')
+  async checkUser(
+    @Body('username') username: string,
+    @Body('password') password: string,
+
+  ) {
+
+    try {
+      const response = await this.userService.checkUser(username, password);
+      return response;
+    } catch (error) {
+      console.log("error")
+      throw error;
+    }
+
+  }
+
 
   @Get('/srv')
   getmine() {

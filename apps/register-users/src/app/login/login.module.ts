@@ -4,7 +4,9 @@ import { LoginComponent } from './login.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login.service';
  
 
 
@@ -15,9 +17,13 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [
     CommonModule,
     MatButtonModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatCardModule
   ],
-  exports:[LoginComponent]
+  exports:[LoginComponent],
+  providers:[LoginService]
 })
 export class LoginModule { }
