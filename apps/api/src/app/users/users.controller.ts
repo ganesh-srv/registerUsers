@@ -54,8 +54,8 @@ export class UsersController {
   }
 
 
-  @Get('/srv')
+  @Get('/getAll')
   getmine() {
-    return this.userService.getmine();
+    return this.userService.getAllUsers();
   }
 }

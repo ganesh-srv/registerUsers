@@ -7,7 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
- 
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { LoginService } from './login.service';
     HttpClientModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   exports:[LoginComponent],
   providers:[LoginService]

@@ -38,7 +38,7 @@ export class UsersService {
 
   generateToken(dataObject, time) {
     console.log("generate token", jwt);
-    
+
     const token = jwt.sign({
       data: dataObject
     }, 'MY_SECERET', {
@@ -58,7 +58,7 @@ export class UsersService {
         const tempUser = {
           username: user.username
         }
-        const token =  this.generateToken(tempUser, 28800000)
+        const token = this.generateToken(tempUser, 28800000)
         return { message: 'Login Successfully', isLogin: true, token }
       } else {
         return { message: 'Invalid credentials', isLogin: false }
@@ -68,6 +68,10 @@ export class UsersService {
     }
   }
 
+
+  async getAllUsers() {
+    return await this.userModel.find();
+  }
 
   getmine(): { message: string } {
     return { message: 'Welcome to mine!' };

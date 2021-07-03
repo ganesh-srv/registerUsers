@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   public createUserForm: any;
   public loginForm: any;
   public errorMessage: string | undefined;
+  public questions: Array<string> | undefined;
 
   constructor(private readonly router: Router, private loginService: LoginService) {
     this.login = true;
@@ -39,6 +40,12 @@ export class LoginComponent implements OnInit {
     //   securityQuestion:new FormControl()
 
     // });
+
+    this.questions = [
+      "What is your nick name?",
+      "What is the name of your first pet?",
+      "What was your first car?"
+    ]
   }
 
   flicker() {
