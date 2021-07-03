@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@register-users/generic": ["libs/generic/src/index.ts"],
+      "@register-users/login": ["libs/login/src/index.ts"],
       "@register-users/shared": ["libs/shared/src/index.ts"]
     }
   },

@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/generic',
     '<rootDir>/libs/shared',
     '<rootDir>/apps/api',
+    '<rootDir>/libs/login',
   ],
 };

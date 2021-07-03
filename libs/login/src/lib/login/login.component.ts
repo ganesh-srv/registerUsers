@@ -6,7 +6,7 @@ import { LoginService } from './login.service';
 @Component({
   selector: 'register-users-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   public login: boolean | undefined;

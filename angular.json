@@ -8,16 +8,12 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -42,16 +38,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -67,9 +59,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/common"
-          ],
+          "outputs": ["coverage/libs/common"],
           "options": {
             "jestConfig": "libs/common/jest.config.js",
             "passWithNoTests": true
@@ -94,9 +84,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/generic"
-          ],
+          "outputs": ["coverage/libs/generic"],
           "options": {
             "jestConfig": "libs/generic/jest.config.js",
             "passWithNoTests": true
@@ -113,6 +101,31 @@
         }
       }
     },
+    "login": {
+      "projectType": "library",
+      "root": "libs/login",
+      "sourceRoot": "libs/login/src",
+      "prefix": "register-users",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/login"],
+          "options": {
+            "jestConfig": "libs/login/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/login/src/**/*.ts",
+              "libs/login/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "register-users": {
       "projectType": "application",
       "root": "apps/register-users",
@@ -121,9 +134,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/register-users/browser",
             "index": "apps/register-users/src/index.html",
@@ -177,7 +188,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget":"register-users:build",
+            "browserTarget": "register-users:build",
             "proxyConfig": "apps/register-users/proxy.conf.json"
           },
           "configurations": {
@@ -207,9 +218,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/register-users"
-          ],
+          "outputs": ["coverage/apps/register-users"],
           "options": {
             "jestConfig": "apps/register-users/jest.config.js",
             "passWithNoTests": true
@@ -258,9 +267,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {
@@ -297,9 +304,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/register-users-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/register-users-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -312,9 +317,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared"
-          ],
+          "outputs": ["coverage/libs/shared"],
           "options": {
             "jestConfig": "libs/shared/jest.config.js",
             "passWithNoTests": true

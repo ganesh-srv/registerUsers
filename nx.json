@@ -36,6 +36,9 @@
     "generic": {
       "tags": []
     },
+    "login": {
+      "tags": []
+    },
     "register-users": {
       "tags": []
     },
